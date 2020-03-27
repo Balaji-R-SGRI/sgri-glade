@@ -7,7 +7,6 @@ from flask_login import login_user, current_user, logout_user, login_required
 from flask_uploads import UploadSet, configure_uploads, IMAGES
 import string
 import random
-from azure.storage.blob import BlockBlobService
 
 from load import *
 import numpy as np
@@ -46,16 +45,10 @@ configure_uploads(app, photos)
 
 posts = [
     {
-        'author': 'Corey Schafer',
-        'title': 'Blog Post 1',
-        'content': 'First post content',
-        'date_posted': 'April 20, 2018'
-    },
-    {
-        'author': 'Jane Doe',
-        'title': 'Blog Post 2',
-        'content': 'Second post content',
-        'date_posted': 'April 21, 2018'
+        'Author': 'Vishnu Murali',
+        'title': 'AI driven glass defect identification',
+        'content': 'Developed by SGRI - Under Beta phase',
+        'date_posted': 'March 27, 2020'
     }
 ]
 
@@ -67,13 +60,14 @@ def home():
     return render_template('home.html', posts=posts)
 
 
-@app.route("/about")
+@app.route("/predict")
 @login_required
-def about():
-    return render_template('about.html', title='About')
+def predict():
+    return render_template('predict.html', title='predict')
 
 
 @app.route("/register", methods=['GET', 'POST'])
+@login_required
 def register():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
