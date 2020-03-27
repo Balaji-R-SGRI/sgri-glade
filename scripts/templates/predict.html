@@ -1,14 +1,14 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>Image classification</h1>
+    <h2>Image classification version 1.2</h2>
 
-    <p>Upload an image and let artificial intelligence classify your image!</p>
+    <p>Upload an image and let the AI identify the defect type based on Antares classification</p>
 
     <p>
     This app is still under developmet phase - Beta version
     </p>
 
-    <p>Possible labels: Stone, Knot, Metal</p>
+    <p>The AI is trained to identify the following defect class: AZS stone, Alumina stone, Corundum, Wet like silica stone, Sugar like silica stone, Silicon bead </p>
 
     <form action="{{ url_for('account') }}" method="post" enctype="multipart/form-data" >
     <input type="file" name = photo  accept="image/*" onchange="loadFile(event)">

@@ -46,7 +46,7 @@ configure_uploads(app, photos)
 posts = [
     {
         'Author': 'Vishnu Murali',
-        'title': 'AI driven glass defect identification',
+        'title': 'AI-driven Glass Defect Identification',
         'content': 'Developed by SGRI - Under Beta phase',
         'date_posted': 'March 27, 2020'
     }
@@ -152,6 +152,8 @@ def account():
         text = []
         for i in top_k:
             #print(template.format(labels[i], results[i]))
+            results[i]=round(results[i]*100,2)
+            #results[i]=float("{0:.2f}".format(results[i]))
             name.append(label[i])  
             text.append(results[i])  
 
